@@ -12,24 +12,26 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <h1>TomBook</h1>
-      <Router>
-        <NavBar />
-        <Routes>
-          <Route path="landing" element={<Landing />} />
-          <Route path="profile" element={<Profile />} >
-            <Route path=":id" element={<Profile />} />
-          </Route>
-          <Route path="profiles" element={<Profiles />} />
-          <Route path="post" element={<PostForm />} />
-          <Route path="viewPost/:id" element={<Post />} />
+    localStorage.setItem("AWS_SERVER_ROOT", "appjedinode3.azurewebsites.net/posts");
 
-          <Route path="posts" element={<Posts />} />
-          <Route path="login" element={<Login />} />
-        </Routes>
-      </Router>
-    </div>
+  <div className="App">
+    <h1>TomBook</h1>
+    <Router>
+      <NavBar />
+      <Routes>
+        <Route path="landing" element={<Landing />} />
+        <Route path="profile" element={<Profile />} >
+          <Route path=":id" element={<Profile />} />
+        </Route>
+        <Route path="profiles" element={<Profiles />} />
+        <Route path="post" element={<PostForm />} />
+        <Route path="viewPost/:id" element={<Post />} />
+
+        <Route path="posts" element={<Posts />} />
+        <Route path="login" element={<Login />} />
+      </Routes>
+    </Router>
+  </div>
   );
 }
 

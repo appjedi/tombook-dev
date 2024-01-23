@@ -5,7 +5,7 @@ import '../../scripts/profile.js';
 
 const Profile = () => {
     //const SERVER_ROOT_URL = "https://tombook.azurewebsites.net/"
-    const SERVER_ROOT_URL = "http://localhost:8080"
+    const SERVER_ROOT_URL = localStorage.getItem("AWS_SERVER_ROOT");
     console.log(SERVER_ROOT_URL);
     const { id } = useParams();
     console.log("ID", id);
