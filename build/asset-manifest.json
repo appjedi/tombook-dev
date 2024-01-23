@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.eb4b83f4.css",
+    "main.js": "/static/js/main.1cc7b9e8.js",
+    "static/js/787.f3fcf9af.chunk.js": "/static/js/787.f3fcf9af.chunk.js",
+    "static/media/persononphone.png": "/static/media/persononphone.38ccae715bcdc8648f33.png",
+    "static/media/Logo.jpg": "/static/media/Logo.cc974513be15febd9c4d.jpg",
+    "index.html": "/index.html",
+    "main.eb4b83f4.css.map": "/static/css/main.eb4b83f4.css.map",
+    "main.1cc7b9e8.js.map": "/static/js/main.1cc7b9e8.js.map",
+    "787.f3fcf9af.chunk.js.map": "/static/js/787.f3fcf9af.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.eb4b83f4.css",
+    "static/js/main.1cc7b9e8.js"
+  ]
+}
