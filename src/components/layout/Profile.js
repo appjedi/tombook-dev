@@ -9,6 +9,7 @@ const Profile = () => {
     console.log(SERVER_ROOT_URL);
     const { id } = useParams();
     console.log("ID", id);
+    const [profileId, setProfileId] = useState("");
     const [lastName, setLastName] = useState("");
     const [firstName, setFirstName] = useState("");
     const [location, setLocation] = useState("");
@@ -50,11 +51,13 @@ const Profile = () => {
         const resp = await fetch(SERVER_ROOT_URL + "/profile/" + id);
         const data = await resp.json();
         console.log("Load Data", data);
+        setProfileId(data._id)
         setFirstName(data.firstName);
         setLastName(data.lastName);
         setLocation(data.location);
         setEmail(data.email);
         setPassword(data.password);
+        setInterest(data.interests)
     }
     const submitData = async () => {
         const data = {
@@ -65,9 +68,12 @@ const Profile = () => {
             email: document.getElementById("email").value,
             password: document.getElementById("password").value,
         }
+        const method = profileId === "" ? "POST" : "PUT";
+        const url = SERVER_ROOT_URL + "/profile" + (profileId === "" ? "" : "/" + profileId);
+        console.log("URL:", url);
         console.log("DATA", data);
-        const resp = await fetch(SERVER_ROOT_URL + "/profile", {
-            method: "POST",
+        const resp = await fetch(url, {
+            method: method,
             headers: {
                 "Content-Type": "application/json",
             },
@@ -76,6 +82,17 @@ const Profile = () => {
         const json = await resp.json();
         console.log(json);
         alert(json.message);
+    }
+    const deleteProfile = async () => {
+        const url = SERVER_ROOT_URL + "/profile/" + profileId;
+        const resp = await fetch(url, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        });
+        const json = await resp.json();
+        console.log(json);
     }
     const setLogin = () => {
         console.log("setLogin", id);
@@ -109,13 +126,10 @@ const Profile = () => {
                         <input type="button" value="Submit" onClick={submitData} />
                     </div>
                     <div className="subbutton">
-                        <input type="button" value="Set User" onClick={setLogin} />
+                        <input type="button" value="Set User" onClick={deleteProfile} />
                     </div>
                 </div>
             </form>
-
-
-
         </div>
     )
 }

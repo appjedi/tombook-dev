@@ -27,10 +27,7 @@ const Profiles = () => {
     }
     return (
         <div>
-
             {ready ? list : <div />}
-
-
         </div>
     )
 }

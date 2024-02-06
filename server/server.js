@@ -1,6 +1,7 @@
 const port = process.env.port || 8080; // port update
 const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
+const { ObjectId } = require("mongoose");
 const express = require("express");
 const session = require('express-session');
 const path = require("path");
@@ -14,8 +15,8 @@ app.use(express.json());
 app.use(cors());
 
 const GC_RELEASE = "2024-01-18";
-//const MongoURL = "mongodb://localhost:27017/tom";
-const MongoURL = "mongodb+srv://Admin:TomBook2024@cluster0.xtms7hy.mongodb.net/"
+const MongoURL = "mongodb://localhost:27017/tom";
+//const MongoURL = "mongodb+srv://Admin:TomBook2024@cluster0.xtms7hy.mongodb.net/"
 mongoose.connect(MongoURL);
 console.log("MongoURL", MongoURL)
 app.get("/release", (req, res) => {
@@ -27,6 +28,23 @@ app.post("/profile", (req, res) => {
   console.log(data);
   Profile.create(data);
   res.send({ status: 1, message: "Profile Created" });
+})
+app.put("/profile/:id", async (req, res) => {
+  const id = req.params.id;
+  const data = req.body;
+  console.log(id, " put profile: ", data);
+  console.log(data);
+  const resp = await Profile.findByIdAndUpdate(id,
+    { $set: { interests: data.interests, location: data.location } },
+  );
+  console.log("RESP:", resp);
+  res.send({ status: 1, message: "Profile Updated" });
+})
+app.delete("/profile/:id", async (req, res) => {
+  const id = req.params.id;
+  const resp = await Profile.findByIdAndDelete(id);
+  console.log("RESP", resp);
+  res.send({ message: "deleted", id: id, resp: resp });
 })
 app.get("/profiles", async (req, res) => {
   const data = await Profile.find({});
