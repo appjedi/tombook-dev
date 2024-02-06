@@ -5,8 +5,8 @@ import '../../scripts/profile.js';
 
 const PostForm = () => {
     //const SERVER_ROOT_URL = "https://tombook.azurewebsites.net/"
-    const SERVER_ROOT_URL = localStorage.getItem("AWS_SERVER_ROOT");
-    console.log(SERVER_ROOT_URL);
+    const SERVER_ROOT_URL = localStorage.getItem("API_SERVER_ROOT");
+    console.log("SERVER_ROOT_URL:",SERVER_ROOT_URL);
     const { id } = useParams();
     console.log("ID", id);
     const [profileId, setProfileId] = useState("");

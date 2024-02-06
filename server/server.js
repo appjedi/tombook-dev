@@ -14,8 +14,8 @@ app.use(express.json());
 app.use(cors());
 
 const GC_RELEASE = "2024-01-18";
-//const MongoURL = "mongodb://localhost:27017/tom";
-const MongoURL = "mongodb+srv://Admin:TomBook2024@cluster0.xtms7hy.mongodb.net/"
+const MongoURL = "mongodb://localhost:27017/tom";
+//const MongoURL = "mongodb+srv://Admin:TomBook2024@cluster0.xtms7hy.mongodb.net/"
 mongoose.connect(MongoURL);
 console.log("MongoURL", MongoURL)
 app.get("/release", (req, res) => {

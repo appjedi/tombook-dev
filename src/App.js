@@ -11,9 +11,10 @@ import Login from "./components/layout/Login";
 import './App.css';
 
 function App() {
+  //localStorage.setItem("AWS_SERVER_ROOT", "appjedinode3.azurewebsites.net/posts");
+    localStorage.setItem("API_SERVER_ROOT", "http://localhost:8080");
   return (
-    localStorage.setItem("AWS_SERVER_ROOT", "appjedinode3.azurewebsites.net/posts");
-
+    
   <div className="App">
     <h1>TomBook</h1>
     <Router>

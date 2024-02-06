@@ -4,7 +4,7 @@ import '../../Styles.css';
 
 const Posts = () => {
     //const SERVER_ROOT_URL = "https://tombook.azurewebsites.net/"
-    const SERVER_ROOT_URL = localStorage.getItem("AWS_SERVER_ROOT");
+    const SERVER_ROOT_URL = localStorage.getItem("API_SERVER_ROOT");
     console.log(SERVER_ROOT_URL);
     const [ready, setReady] = useState(false);
     const [data, setData] = useState([]);
