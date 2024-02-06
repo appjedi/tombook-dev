@@ -40,6 +40,7 @@ app.put("/profile/:id", async (req, res) => {
   console.log("RESP:", resp);
   res.send({ status: 1, message: "Profile Updated" });
 })
+//NEW
 app.delete("/profile/:id", async (req, res) => {
   const id = req.params.id;
   const resp = await Profile.findByIdAndDelete(id);
