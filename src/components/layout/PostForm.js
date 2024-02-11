@@ -15,7 +15,7 @@ const PostForm = () => {
 
     const titleHandler = (event) => {
         console.log("titleHandler");
-        setTitle(event.target.value)
+        setTitle(event.target.value:)
     }
     const commentsHandler = (event) => {
         setComments(event.target.value)
