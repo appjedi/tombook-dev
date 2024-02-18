@@ -15,7 +15,9 @@ app.use(cors());
 
 const GC_RELEASE = "2024-01-18";
 //const MongoURL = "mongodb://localhost:27017/tom";
-const MongoURL = "mongodb+srv://Admin:TomBook2024@cluster0.xtms7hy.mongodb.net/"
+//const MongoURL = "mongodb+srv://Admin:TomBook2024@cluster0.xtms7hy.mongodb.net/";
+const MongoURL = "mongodb+srv://appuser:AppData2022@cluster0.aga82.mongodb.net/";
+
 mongoose.connect(MongoURL);
 console.log("MongoURL", MongoURL)
 app.get("/release", (req, res) => {
@@ -28,7 +30,7 @@ app.post("/profile", (req, res) => {
   Profile.create(data);
   res.send({ status: 1, message: "Profile Created" });
 })
-app.put("/profile/:id",async (req, res) => {
+app.put("/profile/:id", async (req, res) => {
   const data = req.body;
   const id = req.params.id;
   console.log(data);
@@ -41,7 +43,7 @@ app.put("/profile/:id",async (req, res) => {
   })
   res.send({ status: 1, message: "Profile Updated" });
 })
-app.delete("/profile/:id",async (req, res) => {
+app.delete("/profile/:id", async (req, res) => {
   const id = req.params.id;
   await Profile.findByIdAndDelete(id);
   res.send({ status: 1, message: "Profile Deleted" });
@@ -86,18 +88,18 @@ app.post("/post", (req, res) => {
   Post.create(data);
   res.send({ status: 1, message: "Post Created" });
 });
-app.put("/post/:id",async (req, res) => {
+app.put("/post/:id", async (req, res) => {
   const data = req.body;
   const id = req.params.id
   console.log(data);
   await Post.findByIdAndUpdate(id,
     {
-      title:data.title,
+      title: data.title,
       comments: data.comments
     });
   res.send({ status: 1, message: "Post Updated" });
 });
-app.delete("/post/:id",async (req, res) => {
+app.delete("/post/:id", async (req, res) => {
   const id = req.params.id;
   await Post.findByIdAndDelete(id);
   res.send({ status: 1, message: "Post Deleted" });

@@ -13,14 +13,14 @@ import './App.css';
 
 
 function App() {
-  sessionStorage.setItem("API_SERVER_URI", "http://tomsbook.net:8080");
-  //sessionStorage.setItem("API_SERVER_URI", "http://localhost:8080");
+  //sessionStorage.setItem("API_SERVER_URI", "http://tomsbook.net:8080");
+  sessionStorage.setItem("API_SERVER_URI", "http://localhost:8080");
   return (
     <div className="App">
       <h1>TomBook</h1>
       <img src={headerlogo} className='mainlogo' alt='main logo' width={100} height={100} />
-      
-    
+
+
       <Router>
         <NavBar />
         <Routes>
@@ -37,8 +37,8 @@ function App() {
           <Route path="posts" element={<Posts />} />
           <Route path="login" element={<Login />} />
         </Routes>
-      </Router> 
-     
+      </Router>
+
     </div>
   );
 }
