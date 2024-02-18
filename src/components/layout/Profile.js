@@ -93,6 +93,7 @@ const Profile = () => {
         });
         const json = await resp.json();
         console.log(json);
+        alert(json.message);
     }
     const setLogin = () => {
         console.log("setLogin", id);
@@ -126,7 +127,7 @@ const Profile = () => {
                         <input type="button" value="Submit" onClick={submitData} />
                     </div>
                     <div className="subbutton">
-                        <input type="button" value="Set User" onClick={deleteProfile} />
+                        <input type="button" value="Delete" onClick={deleteProfile} />
                     </div>
                 </div>
             </form>
