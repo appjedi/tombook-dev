@@ -45,7 +45,7 @@ app.put("/profile/:id", async (req, res) => {
 })
 app.delete("/profile/:id", async (req, res) => {
   const id = req.params.id;
-  await Profile.findByIdAndDelete(id);
+  await Profile.findByIdAndDelete(id); (())
   res.send({ status: 1, message: "Profile Deleted" });
 });
 
